@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方块社 · 二维码工坊</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bauhaus-head">
+  <div class="shapes">
+    <span class="sq"></span><span class="ci"></span><span class="tr"></span>
+  </div>
+  <div class="title-block">
+    <h1>方块社</h1>
+    <p>QR&nbsp;WORKSHOP&nbsp;No.27&nbsp;&nbsp;·&nbsp;&nbsp;三原色&nbsp;·&nbsp;自研编码器&nbsp;·&nbsp;全部本地生成</p>
+  </div>
+  <div class="head-card">
+    <b id="hdStat">就绪</b>
+    <i>编码引擎</i>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="panel">
+    <h2 class="p-title">码型</h2>
+    <ul class="type-grid" id="typeGrid">
+      <li class="on" data-ty="text"><b>文</b>文本</li>
+      <li data-ty="url"><b>链</b>网址</li>
+      <li data-ty="wifi"><b>波</b>Wi-Fi</li>
+      <li data-ty="vcard"><b>片</b>名片</li>
+      <li data-ty="tel"><b>话</b>电话</li>
+      <li data-ty="sms"><b>信</b>短信</li>
+      <li data-ty="mail"><b>邮</b>邮件</li>
+      <li data-ty="geo"><b>标</b>位置</li>
+    </ul>
+
+    <h2 class="p-title">内容</h2>
+    <div class="form" id="typeForm"></div>
+    <button class="btn big" id="goBtn">生成二维码</button>
+  </section>
+
+  <section class="panel">
+    <h2 class="p-title">成品</h2>
+    <div class="qr-stage"><canvas id="qrCanvas" width="300" height="300"></canvas></div>
+    <p class="stage-note" id="stageNote">填好内容，按「生成二维码」。</p>
+    <div class="dl-row">
+      <button class="btn dark" id="dlS">下载 300px</button>
+      <button class="btn dark" id="dlM">下载 600px</button>
+      <button class="btn dark" id="dlL">下载 1200px</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="p-title">制版</h2>
+    <div class="opt">
+      <div class="row"><span class="lab">码点</span>
+        <label><input type="radio" name="dotStyle" value="square" checked> 方块</label>
+        <label><input type="radio" name="dotStyle" value="dot"> 圆点</label></div>
+      <div class="row"><span class="lab">纠错</span>
+        <label><input type="radio" name="ec" value="L"> L 7%</label>
+        <label><input type="radio" name="ec" value="M" checked> M 15%</label>
+        <label><input type="radio" name="ec" value="Q"> Q 25%</label>
+        <label><input type="radio" name="ec" value="H"> H 30%</label></div>
+      <div class="row"><span class="lab">前景</span><input type="color" id="cDark" value="#111111">
+        <span class="lab" style="min-width:auto">背景</span><input type="color" id="cLight" value="#ffffff">
+        <label><input type="checkbox" id="cTrans"> 透明底</label></div>
+      <div class="row"><span class="lab">Logo</span>
+        <label class="up-label">贴图<input type="file" id="logoFile" accept="image/*" hidden></label>
+        <button class="btn ghost" id="logoClear">取下</button></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="p-title">近作</h2>
+    <ul class="history" id="histList"><li class="empty">还没有生成记录。生成后自动留档（仅存文本，存在本机）。</li></ul>
+  </section>
+
+</main>
+
+<footer class="rail">
+  <span id="stMode">文本</span>
+  <span class="st-dots"></span>
+  <span id="stInfo">引擎待命</span>
+</footer>
+
+<div id="errSink" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
